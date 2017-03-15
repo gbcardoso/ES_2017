@@ -8,11 +8,11 @@ Some of the team or project documentation can be made available.
 
 
 
-##Use tecnologies
-		1. Html+CSS e JavaScript
-			1. JSON
-			2. JQuery
-			3. AJAX
-		2. API do Git@DEI (GitLab API fork)
-		3. API do Trello
-		4. Bootstrap
+## __Used tecnologies__
+		1.Html+CSS e JavaScript
+			1.JSON
+			2.JQuery
+			3.AJAX
+		2.API do Git@DEI (GitLab API fork)
+		3.API do Trello
+		4.Bootstrap
