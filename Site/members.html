@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API - A.S.I.</title>
+    <meta name="description" content="Dashbord for GIT">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/flexboxgrid.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/members.js" defer=t rue></script>
+    <script type="text/javascript" src="js/colocarData.js"></script>
+
+    <body onload="startContent()">
+        <nav>
+            <div class="row">
+                <div class="col-xs-3 center-xs">
+                    <a href="ProjetosUser.html"><img alt="logotipo" src="pictogramas/logo.png" class="logo" /></a>
+                </div>
+                <div class="col-xs-6">
+                    <ul id="Nav_links">
+                        <li><a>People</a></li>
+                        <li><a href="index.html">Artifacts</a></li>
+                        <li class="dropdown"><a class="dropbtn">Processes</a>
+                            <div class="dropdown-content"> <a href="process.html">Tasks</a> <a href="rup.html">RUP effort</a> </div>
+                        </li>
+                        <li><a>Work</a></li>
+                        <li class="dropdown"><a class="dropbtn">Project</a>
+                            <div class="dropdown-content"> <a href="commitstabelas.html">Commits</a> <a href="members.html">Graphs</a> </div>
+                        </li>
+                        <!-- nao existe processes, apenas hover para as restantes -->
+                    </ul>
+                </div>
+                <div class="col-xs-3">
+                    <ul id="search">
+                        <li>
+                            <form id="demo-2">
+                                <input type="search" placeholder="Search"> </form>
+                        </li>
+                        <li>
+                            <a href="javascript:logOut()"> <img src="pictogramas/login.png"> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- PROJECT NAME -->
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6" id="projectname">
+                <p>Nome projeto</p>
+            </div>
+            <div class="col-xs-3"> </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6" id="projectinfo">
+                <p>Data, hora, etc</p>
+            </div>
+            <div class="col-xs-3"> </div>
+        </div>
+        <!-- END OF PROJECT NAME -->
+        <!--container-->
+        <div class="row" id="content">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <div id="bar" class="row" style="height: 300px; width: 100%; "> </div>
+                <div class="container-fluid container-cards-pf">
+                    <div class="row row-cards-pf" id="cards"> </div>
+                </div>
+            </div>
+            <div class="col-xs-3"></div>
+            <!-- /container -->
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API - A.S.I.</title>
+    <meta name="description" content="Dashbord for GIT">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flexboxgrid.css">
+    <script type="text/javascript" src="js/colocarData.js" defer="true"></script>
+    <!-- PARTE NOVA-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="js/commitsM.js"></script>
+    <script src="js/aux1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <!-- Optional theme -->
+    <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="js/canvasjs.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <!--TERMINA AQUI-->
+</head>
+
+<body>
+    <!-- PARTE NOVA-->
+    <nav>
+        <div class="row">
+            <div class="col-xs-3 center-xs">
+                <a href="ProjetosUser.html"><img alt="logotipo" src="pictogramas/logo.png" class="logo" /></a>
+            </div>
+            <div class="col-xs-6">
+                <ul id="Nav_links">
+                    <li><a>People</a></li>
+                    <li><a href="index.html">Artifacts</a></li>
+                    <li class="dropdown"><a class="dropbtn">Processes</a>
+                        <div class="dropdown-content"> <a href="process.html">Tasks</a> <a href="rup.html">RUP effort</a> </div>
+                    </li>
+                    <li><a>Work</a></li>
+                    <li class="dropdown"><a class="dropbtn">Project</a>
+                        <div class="dropdown-content"> <a href="commitstabelas.html">Commits</a> <a href="members.html">Graphs</a> </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                <ul id="search">
+                    <li>
+                        <form id="demo-2">
+                            <input type="search" placeholder="Search"> </form>
+                    </li>
+                    <li>
+                        <a href="javascript:logOut()"> <img src="pictogramas/login.png"> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- PROJECT NAME -->
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectname">
+            <p>Nome projeto</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectinfo">
+            <p>Data, hora, etc</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    <!-- END OF PROJECT NAME -->
+    <!-- PARTE ANTIGA NAVEGAÇÃO-->
+    <div class="row1">
+        <div class="col-sm-4 col-sm-offset-4">
+            <h1 id="numCommits"></h1>
+            <div id="botaographs" data-toggle="modal" data-target="#graphs"> <a id="linkgraphs" class="bs-example" href="#">See Graphs</a> </div>
+        </div>
+    </div>
+    <div class="row2">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"> <img id="foto">
+            <br>
+            <br>
+            <p id="um"></p>
+        </div>
+        <div class="col-sm-6">
+            <table cellspacing="10" id="serach-list" style="width:100%">
+                <tr>
+                    <th id="dois">Commit</th>
+                    <th id="tres">Id</th>
+                    <th id="quatro">Data</th>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-2"> </div>
+    </div>
+    <div id="graphs" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 800px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">GRAPHS</h4> </div>
+                <div class="modal-body">
+                    <div id="chartContainer" style="height: 700px; width: 100%;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

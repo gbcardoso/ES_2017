@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API - A.S.I.</title>
+    <meta name="description" content="Dashbord for GIT"> c
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flexboxgrid.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/rup.js" defer="true"></script>
+    <script type="text/javascript" src="js/colocarData.js" defer="true"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://api.trello.com/1/client.js?key=4f99f55ae5f328c17edd2f9b7d528bc9"></script>
+    <!--<script src="https://api.trello.com/1/client.js?key=cb2c133e6a8ef8d75465134a1134c7d8"></script>-->
+</head>
+
+<body>
+    <nav>
+        <div class="row">
+            <div class="col-xs-3 center-xs">
+                <a href="ProjetosUser.html"><img alt="logotipo" src="pictogramas/logo.png" class="logo" /></a>
+            </div>
+            <div class="col-xs-6">
+                <ul id="Nav_links">
+                    <li><a>People</a></li>
+                    <li><a href="index.html">Artifacts</a></li>
+                    <li class="dropdown"><a class="dropbtn">Processes</a>
+                        <div class="dropdown-content"> <a href="process.html">Tasks</a> <a href="rup.html">RUP effort</a> </div>
+                    </li>
+                    <li><a>Work</a></li>
+                    <li class="dropdown"><a class="dropbtn">Project</a>
+                        <div class="dropdown-content"> <a href="commitstabelas.html">Commits</a> <a href="members.html">Graphs</a> </div>
+                    </li>
+                    <!-- nao existe processes, apenas hover para as restantes -->
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                <ul id="search">
+                    <li>
+                        <form id="demo-2">
+                            <input type="search" placeholder="Search"> </form>
+                    </li>
+                    <li>
+                        <a href="javascript:logOut()"> <img src="pictogramas/login.png"> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- PROJECT NAME -->
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectname">
+            <p>Nome projeto</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectinfo">
+            <p>Data, hora, etc</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    <!-- END OF PROJECT NAME -->
+    <div class="chart" id="chartContainer"></div>
+</body>
+
+</html>

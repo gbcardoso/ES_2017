@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API - A.S.I.</title>
+    <meta name="description" content="Dashbord for GIT">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/flexboxgrid.css">
+    <script type="text/javascript" src="js/index.js" defer="true"></script>
+    <script type="text/javascript" src="js/colocarData.js" defer="true"></script>
+    <link rel="stylesheet" href="css/main.css"> </head>
+
+<body>
+    <nav>
+        <div class="row">
+            <div class="col-xs-3 center-xs">
+                <a href="ProjetosUser.html"><img alt="logotipo" src="pictogramas/logo.png" class="logo" /></a>
+            </div>
+            <div class="col-xs-6">
+                <ul id="Nav_links">
+                    <li><a>People</a></li>
+                    <li><a href="index.html">Artifacts</a></li>
+                    <li class="dropdown"><a class="dropbtn">Processes</a>
+                        <div class="dropdown-content"> <a href="process.html">Tasks</a> <a href="rup.html">RUP effort</a> </div>
+                    </li>
+                    <li><a>Work</a></li>
+                    <li class="dropdown"><a class="dropbtn">Project</a>
+                        <div class="dropdown-content"> <a href="commitstabelas.html">Commits</a> <a href="members.html">Graphs</a> </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                <ul id="search">
+                    <li>
+                        <form id="demo-2">
+                            <input type="search" placeholder="Search"> </form>
+                    </li>
+                    <li>
+                        <a href="javascript:logOut()"> <img src="pictogramas/login.png"> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- PROJECT NAME -->
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectname">
+            <p>Nome projeto</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectinfo">
+            <p>Data, hora, etc</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    <!-- END OF PROJECT NAME -->
+    <div class="row" id="content">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+            <div id="bar" class="row">
+                <div class="col-xs-3" id="Commits">12 Commits</div>
+                <div class="col-xs-3" id="Branches">2 Branches</div>
+                <div class="col-xs-3" id="Releases">undefined Releases</div>
+                <div class="col-xs-3" id="Contributors">6 Contributors</div>
+            </div>
+            <div id="table">
+                <div class="row">
+                    <div class="col-xs-4 center-xs">Name</div>
+                    <div class="col-xs-4 center-xs">Description</div>
+                    <div class="col-xs-4 center-xs">Upload Date</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

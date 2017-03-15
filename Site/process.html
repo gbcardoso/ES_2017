@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API - A.S.I.</title>
+    <meta name="description" content="Dashbord for GIT"> c
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flexboxgrid.css">
+    <script type="text/javascript" src="js/colocarData.js" defer="true"></script>
+    <link href='css/style.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/tentativa.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://api.trello.com/1/client.js?key=4f99f55ae5f328c17edd2f9b7d528bc9"></script>
+    <link href='css/custom.css' rel='stylesheet'> </head>
+
+<body>
+    <nav>
+        <div class="row">
+            <div class="col-xs-3 center-xs">
+                <a href="ProjetosUser.html"><img alt="logotipo" src="pictogramas/logo.png" class="logo" /></a>
+            </div>
+            <div class="col-xs-6">
+                <ul id="Nav_links">
+                    <li><a>People</a></li>
+                    <li><a href="index.html">Artifacts</a></li>
+                    <li class="dropdown"><a class="dropbtn">Processes</a>
+                        <div class="dropdown-content"> <a href="process.html">Tasks</a> <a href="rup.html">RUP effort</a> </div>
+                    </li>
+                    <li><a>Work</a></li>
+                    <li class="dropdown"><a class="dropbtn">Project</a>
+                        <div class="dropdown-content"> <a href="commitstabelas.html">Commits</a> <a href="members.html">Graphs</a> </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                <ul id="search">
+                    <li>
+                        <form id="demo-2">
+                            <input type="search" placeholder="Search"> </form>
+                    </li>
+                    <li>
+                        <a href="javascript:logOut()"> <img src="pictogramas/login.png"> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- PROJECT NAME -->
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectname">
+            <p>Nome projeto</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="projectinfo">
+            <p>Data, hora, etc</p>
+        </div>
+        <div class="col-xs-3"> </div>
+    </div>
+    </div>
+    <div class="col-sm-8 centerContent">
+        <div class="centerCol">
+            <div class="header">
+                <div class="nameDate"> <a href="home.html" class="projectLink"><h2 id="project"></h2></a>
+                    <p id="date"></p>
+                </div>
+                <div class="alerts">
+                    <h3 id="alertsH"></h3>
+                    <h4 id="weekN"></h4> </div>
+            </div>
+            <div class="col-sm-8 centerContent">
+                <div class="centerCol">
+                    <div class="header">
+                        <div class="nameDate"> <a href="index.html" class="projectLink"><h2 id="project"></h2></a>
+                            <p id="date"></p>
+                        </div>
+                        <div class="alerts">
+                            <h3 id="alertsH"></h3>
+                            <h4 id="weekN"></h4> </div>
+                    </div>
+                    <div class="contentI">
+                        <div class="menutask">
+                            <h1 class="tasktitle">My tasks</h1>
+                            <!-- <button class="buttongray"> Add Task </button> -->
+                        </div>
+                        <form class="form-horizontal" id="boards_form">
+                            <div class="form-group">
+                                <select class="form-control" id="lists">
+                                    <option>Chose your list</option>
+                                </select> <img id="addtask" src="imgs/addtask.png"> </div>
+                        </form>
+                        <div id="newtask">
+                            <div id="newtask1">
+                                <!--<form method="post">-->
+                                <div>
+                                    <label class="ui-hidden-accessible"><b>Task Name:</b> </label>
+                                    <input type="text" name="task" id="tname" placeholder="Task Name">
+                                    <label class="ui-hidden-accessible"><b>Description:</b></label>
+                                    <input type="text" name="des" id="descrp" placeholder="Descrição">
+                                    <label class="ui-hidden-accessible"><b>Details:</b></label>
+                                    <input type="text" name="det" id="details" placeholder="Details">
+                                    <label class="ui-hidden-accessible"><b>Rup:</b></label>
+                                    <input type="text" name="rt" id="rup" placeholder="RUP type">
+                                    <label class="ui-hidden-accessible"><b>Estimated time:</b></label>
+                                    <input type="text" name="est" id="time" placeholder="Estimated time">
+                                    <label class="ui-hidden-accessible"><b>Owner:</b></label>
+                                    <input type="text" name="ow" id="own" placeholder="Owner">
+                                    <input type="submit" data-inline="true" id="ctask" value="Edit Task"> </div>
+                                <!--</form>-->
+                            </div>
+                        </div>
+                        <div id="tasks"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="https://api.trello.com/1/client.js?key=4f99f55ae5f328c17edd2f9b7d528bc9"></script>
+<script type="text/javascript">
+    var appKey = "4f99f55ae5f328c17edd2f9b7d528bc9"; //alterar!!!!!!!!!!!!!!!!
+    var tok = "5ce81baab6987aba1f0fe27c114a55036f036dcaaee76ab6d6ade86d9835a7a3"; //alterar!!!!!!!!!!!!!!!
+    var a = '';
+    var loadedLists = function (lists) {
+        $.each(lists, function (index, value) {
+            $('#lists').append($("<option></option>").attr("value", value.id).text(value.name));
+            /*console.log(value.id);
+            Lists.push(value.id);
+            console.log("id:"+value.name+"id:"+value.id);*/
+        });
+    };
+    //console.log(Lists);
+    $('#lists').change(function () {
+        var listId = $("option:selected", this).val();
+        $('#cards').empty();
+        Trello.get('/lists/' + listId + '/cards?key=' + appKey + '&token=' + tok, loadedCards, function () {
+            console.log("Failed to load cards");
+        });
+        createCard(listId);
+    });
+    var loadedCards = function (cards) {
+        $("#tasks").empty();
+        $.each(cards, function (index, value) {
+            $('#cards').append($("<option></option>").attr("value", value.id).text(value.name + " " + value.desc));
+            a = '';
+            a = a + '<br>' + ">>>" + value.name + " " + value.desc;
+            letstry(a, value.id);
+        });
+    };
+
+    function letstry(a, id) {
+        console.log(a + " -----------" + id);
+        var sucess = function (successMsg) {
+            var aux = [];
+            //console.log(successMsg);
+            for (var i = 0; i < successMsg.length; i++) {
+                //console.log(successMsg[i].name);
+                a = a + '<br>' + successMsg[i].name;
+                aux.push(successMsg[i].id + " " + successMsg[i].name); //mexer aqui juntando o name
+                //console.log(successMsg[i].id);
+            }
+            console.log(aux);
+            //----------------------------------------------------------//
+            var btn = document.createElement("button");
+            var btn1 = document.createElement("button");
+            $(btn).text("edit");
+            $(btn).attr("id", id);
+            $("#tasks").append(a).append(btn);
+            //console.log(value.name);
+            $(btn1).text("delete");
+            $(btn1).attr("id", id);
+            $("#tasks").append(btn1);
+            $(btn).on("click", function () { //edit--abre popup()
+                console.log("button clicked");
+                $("#newtask").css("display", "block");
+                $("#ctask").on("click", function () {
+                    console.log("percebeste??");
+                    //                                 alterei
+                    var task = document.getElementById("tname").value;
+                    var description = document.getElementById("descrp").value;
+                    var detail = document.getElementById("details").value;
+                    var ruptype = document.getElementById("rup").value;
+                    var estimated_time = document.getElementById("time").value;
+                    var ownert = document.getElementById("own").value;
+                    var success = function (successMsg) {
+                        //asyncOutput(successMsg);
+                        //location.reload();
+                    };
+                    var error = function (errorMsg) {
+                        //asyncOutput("error: " + errorMsg);
+                    };
+                    var success1 = function (successMsg) {
+                        location.reload();
+                    }
+                    if (description != "" && detail != "") {
+                        Trello.put('/cards/' + btn.id + '/desc?value=Description:' + description + '<br>' + ' Details:' + detail + '&key=' + appKey + '&token=' + tok, success, error);
+                    }
+                    if (description != "" && detail == "") {
+                        Trello.put('/cards/' + btn.id + '/desc?value=Description:' + description + '&key=' + appKey + '&token=' + tok, success, error);
+                    }
+                    if (description == "" && detail != "") {
+                        Trello.put('/cards/' + btn.id + ' Details:' + detail + '&key=' + appKey + '&token=' + tok, success, error);
+                    }
+                    //já está em ordem!!
+                    if (task != "") {
+                        Trello.put('/cards/' + btn.id + '/name?value=' + task + '&key=' + appKey + '&token=' + tok, success, error);
+                    }
+                    var k = 0;
+                    for (k = 0; k < aux.length; k++) {
+                        console.log(aux[k]);
+                        if (aux[k].indexOf("RUP") != -1) {
+                            var lid = aux[k].split(" ");
+                            console.log(lid[0]);
+                            if (ruptype != "") {
+                                Trello.put('labels/' + lid[0] + '/name?value=RUP:' + ruptype + '&key=' + appKey + '&token=' + tok, success, error);
+                            }
+                        }
+                        else if (aux[k].indexOf("OWNER") != -1) {
+                            var lid = aux[k].split(" ");
+                            console.log(lid[0]);
+                            if (ownert != "") {
+                                Trello.put('labels/' + lid[0] + '/name?value=OWNER:' + ownert + '&key=' + appKey + '&token=' + tok, success, error);
+                            }
+                        }
+                        else if (aux[k].indexOf("ESTIMATED TIME") != -1) {
+                            var lid = aux[k].split(" ");
+                            console.log(lid[0]);
+                            if (estimated_time != "") {
+                                Trello.put('labels/' + lid[0] + '/name?value=ESTIMATED TIME:' + estimated_time + '&key=' + appKey + '&token=' + tok, success1, error);
+                            }
+                        }
+                    }
+                    /*
+                    //label RUP mexer no aux]0 eaux]1 e aux]3
+                    if (ruptype!=""){
+                        Trello.put('labels/'+aux[0]+'/name?value=RUP:'+ruptype+'&key='+appKey+'&token='+tok,success,error);
+                    }
+                    //label OWNER
+                    if (ownert!=""){
+                        Trello.put('labels/'+aux[1]+'/name?value=OWNER:'+ownert+'&key='+appKey+'&token='+tok,success,error);
+                    }
+                    //label ESTIMATED TIME
+                    if (estimated_time!=""){
+                        Trello.put('labels/'+aux[3]+'/name?value=ESTIMATED TIME:'+estimated_time+'&key='+appKey+'&token='+tok,success1,error);
+                    }
+                        
+                    */
+                    $("#newtask").css("display", "none");
+                    //console.log(teste);
+                    //location.reload();
+                });
+            });
+            $(btn1).on("click", function () { //delete
+                console.log("button clicked");
+                //console.log('vamos testar o botao delete:'+btn.id)/*
+                var success = function (successMsg) {
+                    //asyncOutput(successMsg);
+                    location.reload();
+                };
+                var error = function (errorMsg) {
+                    //asyncOutput("error: " + errorMsg);
+                };
+                Trello.delete('/cards/' + btn1.id + '?key=' + appKey + '&token=' + tok, success, error);
+                //location.reload();
+            });
+            //----------------------------------------------------------//
+        }
+        var error = function (errorMsg) {
+            console.log(errorMsg);
+        }
+        Trello.get('/cards/' + id + '/labels?key=' + appKey + '&token=' + tok, sucess, error);
+    }
+
+    function createCard(idList) {
+        $("#newtask").css("display", "block");
+        $("#addtask").on("click", function () {
+            var task = document.getElementById("tname").value;
+            console.log(task);
+            var description = document.getElementById("descrp").value;
+            var detail = document.getElementById("details").value;
+            var ruptype = document.getElementById("rup").value;
+            var estimated_time = document.getElementById("time").value;
+            var ownert = document.getElementById("own").value;
+            var success = function (successMsg) {
+                //asyncOutput(successMsg);
+                var cardId = successMsg.id;
+                var sucess = function (successMsg) {
+                    //asyncOutput(successMsg);
+                    //location.reload();
+                };
+                var sucess1 = function (successMsg) {
+                        location.reload();
+                    }
+                    //label RUP
+                Trello.post('/cards/' + cardId + '/labels?color=yellow&name=RUP:' + ruptype + '&key=' + appKey + '&token=' + tok, sucess, error);
+                //label owner
+                Trello.post('/cards/' + cardId + '/labels?color=red&name=OWNER:' + ownert + '&key=' + appKey + '&token=' + tok, sucess, error);
+                //label id
+                Trello.post('/cards/' + cardId + '/labels?color=green&name=ID:' + cardId + '&key=' + appKey + '&token=' + tok, sucess1, error);
+                //label estimated time
+                Trello.post('/cards/' + cardId + '/labels?color=blue&name=ESTIMATED TIME:' + estimated_time + '&key=' + appKey + '&token=' + tok, sucess1, error);
+            };
+            var error = function (errorMsg) {
+                //asyncOutput("error: " + errorMsg);
+            };
+            var newCard = {
+                name: task
+                , desc: "Description: " + description + " Details: " + detail
+                , pos: "top"
+                , due: null, //idList: destinationList
+            };
+            var cardId;
+            Trello.post('/cards?due=null&idList=' + idList + '&key=' + appKey + '&token=' + tok, newCard, success, error);
+        });
+        //$("#newtask").css("display","none");
+    }
+    /*NECESSARIO boardId*/
+    Trello.get('/boards/5821136a9e6d3e6bb17410f0/lists?key=' + appKey + '&token=' + tok, loadedLists, function () {
+        console.log("Failed to load lists");
+    });
+</script>
+
+</html>

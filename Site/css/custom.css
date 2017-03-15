@@ -1,0 +1,18 @@
+.form-control {
+  width: 50%;
+  display: inline-block;
+}
+.form-control:hover{
+    cursor: pointer;
+}
+
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: 0px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+#addtask:hover{
+    cursor: pointer;
+}
